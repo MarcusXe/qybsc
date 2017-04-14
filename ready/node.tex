@@ -1,0 +1,46 @@
+%\documentclass{article}
+%\usepackage{tikz}  %使用tikz包用于画图
+%\usepackage{fontspec, xunicode, xltxtra} 
+%\usepackage{verbatim}
+%\usepackage[active,tightpage]{preview}
+%\PreviewEnvironment{tikzpicture}
+%\setlength\PreviewBorder{\textwidth}%
+%\setmainfont{PingFangSC-Regular}  
+%\usetikzlibrary{trees}
+%\tikzstyle{every node}=[anchor=west]
+
+%\begin{document}
+\begin{tikzpicture}[%
+  grow via three points={one child at (0.5,-0.7) and
+  two children at (0.5,-0.7) and (0.5,-1.4)},
+  edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}]
+  \node {企业版}
+    child { node {首页}  
+      child {node {注册}}  
+      child {node {登录}}
+      } 
+    child [missing]{}
+    child [missing]{}
+    child { node {现金宝}
+      child {node {现金宝介绍}}
+      child {node {充值页面}}
+      }
+    child [missing]{}
+    child [missing]{}
+    child { node {高收益产品}
+      child {node {产品介绍}}
+      child {node {热卖专区}}
+      }
+    child [missing]{}
+    child [missing]{}
+    child { node {基金产品}
+      child { node {基金介绍}}
+      child { node {热卖专区}}
+      }
+    child [missing]{}
+    child [missing]{}
+    child {node {我的账户}}              
+    child {node {页底链接}};  
+
+\end{tikzpicture}
+%\end{document}

@@ -1,0 +1,109 @@
+%!TEX program = xelatex
+\documentclass[12pt,a4paper,openany,fleqn]{book}
+\usepackage{fontspec, xunicode, xltxtra}
+\usepackage{tikz}
+\usepackage{subfig}
+\usepackage{color}
+\usepackage{graphicx} 
+\usepackage{titlesec}
+\usepackage{indentfirst} %首行缩进处理
+\usepackage{geometry}  %使用geomtry包设置页面
+\usepackage[colorlinks,linkcolor=black,anchorcolor=blue,citecolor=green]{hyperref} %使用超链接
+\usepackage{wrapfig}
+\usepackage[fleqn]{amsmath}
+\usepackage{latexsym}
+\usepackage{booktabs}
+
+
+% 定义字体
+\defaultfontfeatures{Mapping=tex-text}
+
+% 定义了两种用颜色%%%%%
+%\definecolor{foot}{RGB}{39,129,214}  %定义页脚的文字颜色
+\newfontfamily\kai{KaiTi}
+	
+% 定义一个新的命令来强调文字下划线红色
+\newcommand{\emp}[1]{\color{red}{#1}}
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+
+% 使用fancyhdr定义页面的设置
+\usepackage{fancyhdr} 
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\rhead{}
+
+
+\setlength{\parskip}{12pt} %%设置段落间的距离
+\setlength{\parindent}{2em}  %%首行缩进两个字符
+
+%% 用fncychap设置章节的样式
+%\ChNameVar{\LARGE\bfseries}
+%\ChTitleVar{\LARGE\bfseries}{第\,\thechapter\,章}
+
+%% 用[titlesec]设置章节的格式
+\titleformat{\part}[display]{\Huge\bfseries}{第\,\thepart\,篇}{1em}{}
+\titleformat{\chapter}{\LARGE\bfseries}{第\,\thechapter\,章}{1em}{}
+\titleformat{\section}{\Large\bfseries}{第\,\thesection\,节}{1em}{}
+
+
+% 设置文本字体和断句方式
+\setmainfont{MicrosoftYaHei}  
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt
+\linespread{1.25}  %%行距扩大为默认的1.28倍
+
+% 重新命名目录
+\renewcommand\contentsname{\textbf{目录}}
+\renewcommand\figurename{图}
+\renewcommand\tablename{表}
+\renewcommand{\thefootnote}{\alph{footnote}}
+
+
+%文档开始
+\begin{document}
+
+% 目录页面
+\thispagestyle{empty}
+\input{ready/title}
+
+%%扉页的内容
+\clearpage
+\input{ready/pre}
+
+
+%% 感谢名单
+\clearpage 
+\input{ready/thanksto}
+
+% 前言部分
+\clearpage
+\input{ready/qianyan}
+
+% 目录部分
+\clearpage
+\thispagestyle{empty}
+\tableofcontents
+
+
+% 第一篇产品
+\input{part1_product/home}
+
+% 第二篇用户管理
+\clearpage
+\input{part2_users/home}
+
+% 第三篇交易
+\clearpage
+\input{part3_trade/home}
+
+% 第四篇系统管理
+\clearpage
+\input{part4_admin/home}
+
+% 第五篇参考内容
+\clearpage
+\input{part5_ref/home}
+
+% 文档结束
+\end{document}
